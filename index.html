@@ -55,6 +55,9 @@
   </div>
 
   <header class="cabecera">
+    <button type="button" class="boton-icono boton-icono-liso" id="b-estadisticas" aria-label="Estadísticas">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V11M10 20V5M16 20v-7M22 20H2"/></svg>
+    </button>
     <a class="marca" href="./" aria-label="Trampantojo, inicio">
       <svg class="marca-icono" aria-hidden="true"><use href="#i-logo"/></svg>
       <span class="marca-texto">Trampantojo</span>
@@ -249,6 +252,19 @@
       <p class="discreto">Al compartir tu resultado solo se ve cuántas ayudas usaste y qué retos fallaste, nunca la respuesta.</p>
       <div class="acciones acciones-columna">
         <button type="button" class="boton" id="d-tutorial">REPETIR TUTORIAL</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="dialogo" id="d-estadisticas" aria-labelledby="d-estadisticas-titulo">
+    <div class="dialogo-cuerpo">
+      <div class="dialogo-cabeza">
+        <h2 class="titulo" id="d-estadisticas-titulo">Estadísticas</h2>
+        <button type="button" class="boton-icono" data-cerrar aria-label="Cerrar"><span aria-hidden="true">×</span></button>
+      </div>
+      <div class="estadisticas" id="d-estadisticas-cifras"></div>
+      <div class="acciones acciones-columna">
+        <button type="button" class="boton" data-cerrar>CERRAR</button>
       </div>
     </div>
   </dialog>

@@ -661,6 +661,29 @@ function mostrarFinal(n) {
   iniciarCuenta(n);
 }
 
+/** Ventana de estadísticas: días jugados, retos resueltos sin fallar y rachas. */
+function pintarEstadisticas() {
+  const dias = Object.values(estado.historial);
+  // Los días jugados cuando había un solo reto no guardan qué retos se fallaron.
+  const retos = suma(dias.map((r) => (r.falladas ? r.falladas.length : 1)));
+  const fallados = suma(dias.map((r) => (r.falladas || []).filter(Boolean).length));
+  const racha = rachaActual(diaActual());
+  const cifras = [
+    [dias.length, 'días'],
+    [`${retos ? Math.round(((retos - fallados) / retos) * 100) : 0}%`, 'aciertos'],
+    [racha, 'racha'],
+    [Math.max(estado.mejorRacha || 0, racha), 'mejor racha'],
+  ];
+  $('d-estadisticas-cifras').replaceChildren(...cifras.map(([valor, nombre]) => {
+    const div = document.createElement('div');
+    div.className = 'racha-dato';
+    div.innerHTML = `<span class="cifra"></span><span class="racha-etiqueta"></span>`;
+    div.firstChild.textContent = valor;
+    div.lastChild.textContent = nombre;
+    return div;
+  }));
+}
+
 /** Casillas de la pantalla final: todas del mismo tamaño, que quepa la respuesta más larga. */
 function medirFinal() {
   const filas = $('f-retos').querySelectorAll('.casillas-final');
@@ -810,6 +833,11 @@ function enlazar() {
   $('b-saltar-tutorial').addEventListener('click', () => { estado.tutorial = true; guardar(); abrirHoy(); });
   $('b-ir-hoy').addEventListener('click', abrirHoy);
   $('b-reintentar').addEventListener('click', () => location.reload());
+
+  const estadisticas = $('d-estadisticas');
+  $('b-estadisticas').addEventListener('click', () => { pintarEstadisticas(); estadisticas.showModal(); });
+  estadisticas.querySelectorAll('[data-cerrar]').forEach((b) => b.addEventListener('click', () => estadisticas.close()));
+  estadisticas.addEventListener('click', (e) => { if (e.target === estadisticas) estadisticas.close(); });
 
   const dialogo = $('d-ayuda');
   $('b-ayuda').addEventListener('click', () => dialogo.showModal());

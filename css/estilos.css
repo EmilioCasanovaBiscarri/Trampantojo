@@ -145,6 +145,8 @@ button { font: inherit; color: inherit; }
 }
 .marca-texto em { font-style: italic; font-weight: 500; color: var(--acento); }
 
+.cabecera { gap: 4px; }
+.cabecera .marca { margin-right: auto; }
 .cabecera-acciones { display: flex; gap: 8px; }
 
 .boton-icono {
@@ -165,6 +167,9 @@ button { font: inherit; color: inherit; }
 }
 .boton-icono:hover { background: var(--papel-alto); border-color: var(--tinta-3); }
 .boton-icono svg { width: 20px; height: 20px; }
+/* Estadísticas: icono de barras sin borde, como en los demás juegos del Almanaque. */
+.boton-icono-liso { margin-left: -8px; border-color: transparent; }
+.boton-icono-liso svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
 
 /* ── Escena ───────────────────────────────────────────────────────── */
 
@@ -927,6 +932,8 @@ a.boton { text-decoration: none; }
 .glosario dd { margin: 0; color: var(--tinta-2); font-size: .94rem; }
 .glosario .ejemplo { display: block; margin-top: 2px; font-style: italic; color: var(--tinta-3); }
 .lista-ayudas { margin: 0 0 12px; padding-left: 1.3em; }
+.estadisticas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 12px 0 4px; text-align: center; }
+.estadisticas .cifra { font-size: 2.2rem; }
 
 /* ── Pantallas anchas: un poco más de aire ────────────────────────── */
 
