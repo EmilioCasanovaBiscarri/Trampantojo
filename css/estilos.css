@@ -145,9 +145,10 @@ button { font: inherit; color: inherit; }
 }
 .marca-texto em { font-style: italic; font-weight: 500; color: var(--acento); }
 
-.cabecera { gap: 4px; }
-.cabecera .marca { margin-right: auto; }
-.cabecera-acciones { display: flex; gap: 8px; }
+/* Estadísticas a la izquierda, logo y nombre en el centro, ayuda a la derecha. */
+.cabecera { display: grid; grid-template-columns: 40px 1fr 40px; gap: 4px; }
+.cabecera .marca { justify-self: center; }
+.cabecera-acciones { display: flex; gap: 8px; justify-self: end; }
 
 .boton-icono {
   display: grid;
