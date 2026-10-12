@@ -248,16 +248,6 @@ button { font: inherit; color: inherit; }
 .boton-secundario:hover { background: var(--papel-alto); }
 a.boton { text-decoration: none; }
 
-#j-ayuda { flex-direction: column; gap: 1px; line-height: 1.2; padding-block: 7px; font-size: .95rem; }
-.boton-pre {
-  display: block;
-  font-size: .64rem;
-  font-weight: 700;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--acento);
-}
-
 .icono-boton { width: 19px; height: 19px; }
 
 .enlace {
@@ -525,17 +515,6 @@ a.boton { text-decoration: none; }
 .saltar-tutorial { margin: 18px 0 0; }
 
 .acciones-nota { margin: 2px 0 0; text-align: center; font-size: .88rem; color: var(--tinta-3); }
-
-.revelacion {
-  margin: 14px 0 0;
-  padding: 10px 14px 4px;
-  border: 1px dashed var(--linea);
-  border-radius: 4px;
-  font-size: .95rem;
-  line-height: 1.45;
-}
-.revelacion .sobretitulo { margin-bottom: 4px; }
-.revelacion strong { font-family: var(--f-display); font-weight: 600; font-size: 1.05em; }
 
 /* ── Casillas ─────────────────────────────────────────────────────── */
 
@@ -978,7 +957,6 @@ a.boton { text-decoration: none; }
 .glosario dt { font-family: var(--f-display); font-weight: 600; }
 .glosario dd { margin: 0; color: var(--tinta-2); font-size: .94rem; }
 .glosario .ejemplo { display: block; margin-top: 2px; font-style: italic; color: var(--tinta-3); }
-.lista-ayudas { margin: 0 0 12px; padding-left: 1.3em; }
 .estadisticas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 12px 0 4px; text-align: center; }
 .estadisticas .cifra { font-size: 2.2rem; }
 #d-semana { margin-top: 8px; }

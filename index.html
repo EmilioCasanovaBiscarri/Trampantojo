@@ -132,11 +132,6 @@
           <p id="j-nota-texto"></p>
         </aside>
 
-        <div class="revelacion" id="j-tipo" hidden>
-          <span class="sobretitulo">Tipo de juego</span>
-          <p><strong id="j-tipo-nombre"></strong> <span id="j-tipo-linea"></span></p>
-        </div>
-
         <div class="casillas-zona" id="j-casillas-zona">
           <div class="casillas" id="j-casillas" aria-hidden="true"></div>
           <input id="j-entrada" class="entrada" type="text" inputmode="text"
@@ -147,9 +142,7 @@
         <p class="mensaje" id="j-mensaje" aria-live="polite"></p>
 
         <div class="acciones">
-          <button type="button" class="boton boton-secundario" id="j-ayuda">
-            <span class="boton-pre">Desvelar pista</span> <span id="j-ayuda-txt"></span>
-          </button>
+          <button type="button" class="boton boton-secundario" id="j-ayuda">Desvelar una letra</button>
           <button type="button" class="boton" id="j-comprobar">Comprobar</button>
         </div>
         <p class="contador-ayudas" id="j-contador"></p>
@@ -183,7 +176,7 @@
       </div>
       <div class="tarjeta tarjeta-texto">
         <p>Has visto cinco trucos. En los retos diarios aparecerán también la <strong>resta</strong> (quitar letras), el <strong>contenedor</strong> (una palabra dentro de otra) y las <strong>combinadas</strong>, que encadenan varios.</p>
-        <p>Si te atascas, pide ayuda. Siempre llegan en el mismo orden: primero se subraya la definición, después se revela el tipo de juego y, por último, se destapan letras.</p>
+        <p>Si te atascas, pide ayuda: cada vez que la pides se destapa una letra de la respuesta.</p>
       </div>
       <div class="acciones acciones-columna">
         <button type="button" class="boton" id="b-ir-hoy">Ver los retos de hoy</button>
@@ -228,11 +221,7 @@
       <h3 class="sobretitulo">Los trucos</h3>
       <dl class="glosario" id="d-glosario"></dl>
       <h3 class="sobretitulo">Las ayudas</h3>
-      <ol class="lista-ayudas">
-        <li>Subrayar la definición.</li>
-        <li>Revelar el tipo de juego.</li>
-        <li>Destapar una letra (puedes repetirla).</li>
-      </ol>
+      <p>El botón «Desvelar una letra» destapa una letra de la respuesta. Puedes pedirlo tantas veces como quieras, pero cada letra cuenta como una ayuda.</p>
       <p class="discreto">Al compartir tu resultado solo se ve cuántas ayudas usaste y qué retos fallaste, nunca la respuesta.</p>
       <div class="acciones acciones-columna">
         <button type="button" class="boton" id="d-tutorial">REPETIR TUTORIAL</button>

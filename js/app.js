@@ -180,7 +180,6 @@ function jugar(p, { modo, n = null, indice = 0, repetir = false }) {
   }
 
   seccion.classList.remove('ver-def', 'ver-ind', 'ver-mat', 'desmontando', 'resuelta');
-  $('j-tipo').hidden = true;
   $('j-zona').hidden = false;
   $('j-desmontaje').hidden = true;
   $('j-mensaje').textContent = '';
@@ -188,9 +187,6 @@ function jugar(p, { modo, n = null, indice = 0, repetir = false }) {
   entrada.value = previo = '';
   $('j-ayuda-lectura').textContent = `Respuesta de ${plural(sol.length, 'letra', 'letras')}.`;
   entrada.setAttribute('aria-label', `Tu respuesta, ${plural(sol.length, 'letra', 'letras')}`);
-
-  if (partida.ayudas >= 1) seccion.classList.add('ver-def');
-  if (partida.ayudas >= 2) revelarTipo();
 
   mostrar('p-juego');
   pintarCasillas();
@@ -355,8 +351,7 @@ function comprobar() {
 
 function rotularAyuda() {
   const a = partida.ayudas;
-  $('j-ayuda-txt').textContent = a === 0 ? 'Subrayar definición' : a === 1 ? 'Revelar el tipo' : 'Destapar una letra';
-  $('j-ayuda').disabled = a >= 2 && !partida.celdas.some((c, i) => !c.fija && normalizarLetra(c.l || ' ') !== normalizarLetra(partida.sol[i]));
+  $('j-ayuda').disabled = !partida.celdas.some((c, i) => !c.fija && normalizarLetra(c.l || ' ') !== normalizarLetra(partida.sol[i]));
   if (partida.modo === 'tutorial') {
     $('j-contador').textContent = 'En el tutorial las ayudas y los fallos no cuentan.';
     return;
@@ -366,24 +361,9 @@ function rotularAyuda() {
   $('j-contador').textContent = `${ayudas} · ${quedan === 1 ? 'último intento' : plural(quedan, 'intento', 'intentos')}.`;
 }
 
-function revelarTipo() {
-  const t = tipoDe(partida.p.tipo);
-  $('j-tipo-nombre').textContent = `${t.nombre}.`;
-  $('j-tipo-linea').textContent = t.linea;
-  $('j-tipo').hidden = false;
-}
-
 function pedirAyuda() {
   if (!partida || partida.resuelta) return;
-  const a = partida.ayudas;
-  if (a === 0) {
-    seccion.classList.add('ver-def');
-  } else if (a === 1) {
-    revelarTipo();
-    $('j-tipo').animate([{ opacity: 0, transform: 'translateY(-6px)' }, { opacity: 1, transform: 'none' }], { duration: 400, easing: 'ease-out' });
-  } else if (!destaparLetra()) {
-    return;
-  }
+  if (!destaparLetra()) return;
   partida.ayudas++;
   guardarEnCurso();
   rotularAyuda();
