@@ -50,3 +50,7 @@ Visita `/reiniciar/` (por ejemplo `http://localhost:8000/reiniciar/`) y pulsa «
 4. Al cabo de un minuto o dos estará en `https://<tu-usuario>.github.io/<repositorio>/`.
 
 Todas las rutas son relativas, así que funciona igual en un subdirectorio de GitHub Pages que en un dominio propio.
+
+## Derechos de autor
+
+© 2026 Emilio Casanova Biscarri. Todos los derechos reservados. El código, los textos y los diseños de este repositorio no pueden copiarse ni reutilizarse sin permiso.
