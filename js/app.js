@@ -573,17 +573,15 @@ function continuar() {
 
 // ── Resultado del día ──────────────────────────────────────────────
 
-const marca = (a, fallada) => (fallada ? '🔴' : a ? '🟡' : '🟢');
-const marcas = (pistas, falladas) => pistas.map((a, i) => marca(a, falladas[i])).join('');
 const ayudasTexto = (a) => (a ? plural(a, 'ayuda', 'ayudas') : 'sin ayudas');
-/** «Los 3 retos, sin ayudas», «Resueltos con 2 ayudas», «2 de 3 resueltos, con 1 ayuda»… */
-function balance(ayudas, falladas) {
-  const total = ayudas.length;
-  const aciertos = total - falladas.filter(Boolean).length;
-  const a = suma(ayudas);
-  if (aciertos === total) return a ? `Resueltos con ${plural(a, 'ayuda', 'ayudas')}` : `Los ${total} retos, sin ayudas`;
-  return `${aciertos} de ${total} resueltos${a ? `, con ${plural(a, 'ayuda', 'ayudas')}` : ''}`;
-}
+
+/** Frase de la ficha final según los retos resueltos (de ninguno a todos). */
+const FRASES = [
+  'Hoy los trampantojos te han engañado.',
+  'Un truco al descubierto. Algo es algo.',
+  'Casi ningún truco se te escapa.',
+  'Ni un truco se te ha escapado.',
+];
 
 function mostrarFinal(n) {
   turno++;
@@ -594,51 +592,73 @@ function mostrarFinal(n) {
   // Los días jugados cuando había un solo reto guardan solo el total.
   const ayudas = r.pistas || ps.map((_, i) => (i ? 0 : r.ayudas));
   const falladas = ps.map((_, i) => !!r.falladas?.[i]);
-  const hoy = diaActual();
+  const aciertos = falladas.filter((f) => !f).length;
+  const tipo = (i) => (falladas[i] ? 'fallada' : ayudas[i] ? 'con-ayudas' : 'limpia');
 
-  $('f-numero').textContent = `Trampantojo #${n}`;
-  $('f-fecha').textContent = capitalizar(new Intl.DateTimeFormat('es-ES', { weekday: 'long', day: 'numeric', month: 'long' }).format(fechaDe(n)));
+  // Una ficha de letra por reto: oscura si salió sin ayudas, ámbar con ayudas y hueca si se falló.
+  const marcas = $('f-marcas');
+  marcas.replaceChildren(...ps.map((_, i) => {
+    const s = document.createElement('span');
+    s.className = `marca-ficha ${tipo(i)}`;
+    return s;
+  }));
+  marcas.setAttribute('aria-label', `${plural(aciertos, 'reto resuelto', 'retos resueltos')} de ${ps.length}`);
+  $('f-cifra').innerHTML = `${aciertos} <small>de ${ps.length}</small>`;
+  $('f-frase').textContent = FRASES[Math.round((aciertos / ps.length) * 3)];
 
   $('f-retos').replaceChildren(...ps.map((p, i) => {
     const li = document.createElement('li');
-    li.className = 'final-reto';
-    const resp = document.createElement('div');
-    resp.className = 'casillas casillas-final';
-    resp.setAttribute('role', 'img');
-    resp.setAttribute('aria-label', `Respuesta: ${p.respuesta}`);
-    resp.replaceChildren(...letras(p.respuesta).map((l, k) => {
-      const s = document.createElement('span');
-      s.className = `casilla llena ${falladas[i] ? 'fallo' : 'acierto'}`;
-      s.style.setProperty('--i', k);
-      s.textContent = l;
-      return s;
-    }));
-    const pista = document.createElement('p');
-    pista.className = 'final-pista';
-    pista.textContent = `${p.pista} (${p.longitud})`;
-    const pie = document.createElement('p');
-    pie.className = 'final-reto-pie';
-    const a = ayudas[i] || 0;
-    pie.append(`${marca(a, falladas[i])} ${falladas[i] ? 'Fallado' : capitalizar(ayudasTexto(a))} · `);
     const ver = document.createElement('button');
     ver.type = 'button';
-    ver.className = 'enlace';
-    ver.textContent = 'Ver el desmontaje';
+    ver.innerHTML = '<span class="marca"></span><span class="lema"></span><span class="destino"></span>';
+    const m = ver.querySelector('.marca');
+    m.classList.add(falladas[i] ? 'mal' : 'bien');
+    m.textContent = falladas[i] ? '✗' : '✓';
+    m.setAttribute('aria-label', falladas[i] ? 'Fallado' : 'Resuelto');
+    ver.querySelector('.lema').textContent = p.respuesta;
+    ver.querySelector('.destino').textContent = falladas[i] ? 'Fallado' : capitalizar(ayudasTexto(ayudas[i] || 0));
+    ver.setAttribute('aria-description', `${p.pista} (${p.longitud}). Ver el desmontaje`);
     ver.addEventListener('click', () => jugar(p, { modo: 'diaria', n, indice: i, repetir: true }));
-    pie.append(ver);
-    li.append(resp, pista, pie);
+    li.append(ver);
     return li;
   }));
 
-  const limpio = suma(ayudas) === 0 && !falladas.some(Boolean);
-  $('f-ayudas').textContent = `${limpio ? '🟢' : marcas(ayudas, falladas)} ${balance(ayudas, falladas)}`;
+  pintarEstadisticas($('f-estadisticas'));
 
-  const racha = rachaActual(hoy);
-  $('f-racha').textContent = racha;
-  $('f-racha-etiqueta').textContent = racha === 1 ? 'día de racha' : 'días de racha';
-  $('f-mejor').textContent = Math.max(estado.mejorRacha || 0, racha);
+  $('f-aviso').textContent = '';
+  $('f-compartir').onclick = () => compartir(n, falladas);
 
-  const semana = $('f-semana');
+  mostrar('p-final');
+  iniciarCuenta(n);
+}
+
+/** Estadísticas (días jugados, retos resueltos sin fallar y rachas): en la pantalla final y en su ventana. */
+function pintarEstadisticas(contenedor = $('d-estadisticas-cifras')) {
+  const dias = Object.values(estado.historial);
+  // Los días jugados cuando había un solo reto no guardan qué retos se fallaron.
+  const retos = suma(dias.map((r) => (r.falladas ? r.falladas.length : 1)));
+  const fallados = suma(dias.map((r) => (r.falladas || []).filter(Boolean).length));
+  const racha = rachaActual(diaActual());
+  const cifras = [
+    [dias.length, 'días'],
+    [`${retos ? Math.round(((retos - fallados) / retos) * 100) : 0}%`, 'aciertos'],
+    [racha, 'racha'],
+    [Math.max(estado.mejorRacha || 0, racha), 'mejor racha'],
+  ];
+  contenedor.replaceChildren(...cifras.map(([valor, nombre]) => {
+    const div = document.createElement('div');
+    div.className = 'racha-dato';
+    div.innerHTML = `<span class="cifra"></span><span class="racha-etiqueta"></span>`;
+    div.firstChild.textContent = valor;
+    div.lastChild.textContent = nombre;
+    return div;
+  }));
+}
+
+/** Últimos siete días en la ventana de estadísticas: verde sin ayudas, ámbar con ayudas, rojo con fallos. */
+function pintarSemana() {
+  const n = diaActual();
+  const semana = $('d-semana');
   const fmt = new Intl.DateTimeFormat('es-ES', { weekday: 'narrow' });
   semana.replaceChildren();
   for (let d = n - 6; d <= n; d++) {
@@ -651,48 +671,6 @@ function mostrarFinal(n) {
     li.innerHTML = `<span class="punto" aria-hidden="true"></span><span class="letra-dia">${fmt.format(fechaDe(d)).toUpperCase()}</span>`;
     li.setAttribute('aria-label', `#${d}: ${h ? (fallos ? `${plural(fallos, 'reto fallado', 'retos fallados')}` : h.ayudas ? `resuelto con ${plural(h.ayudas, 'ayuda', 'ayudas')}` : 'resuelto sin ayudas') : 'sin resolver'}`);
     semana.append(li);
-  }
-
-  $('f-aviso').textContent = '';
-  $('f-compartir').onclick = () => compartir(n, falladas);
-
-  mostrar('p-final');
-  medirFinal();
-  iniciarCuenta(n);
-}
-
-/** Ventana de estadísticas: días jugados, retos resueltos sin fallar y rachas. */
-function pintarEstadisticas() {
-  const dias = Object.values(estado.historial);
-  // Los días jugados cuando había un solo reto no guardan qué retos se fallaron.
-  const retos = suma(dias.map((r) => (r.falladas ? r.falladas.length : 1)));
-  const fallados = suma(dias.map((r) => (r.falladas || []).filter(Boolean).length));
-  const racha = rachaActual(diaActual());
-  const cifras = [
-    [dias.length, 'días'],
-    [`${retos ? Math.round(((retos - fallados) / retos) * 100) : 0}%`, 'aciertos'],
-    [racha, 'racha'],
-    [Math.max(estado.mejorRacha || 0, racha), 'mejor racha'],
-  ];
-  $('d-estadisticas-cifras').replaceChildren(...cifras.map(([valor, nombre]) => {
-    const div = document.createElement('div');
-    div.className = 'racha-dato';
-    div.innerHTML = `<span class="cifra"></span><span class="racha-etiqueta"></span>`;
-    div.firstChild.textContent = valor;
-    div.lastChild.textContent = nombre;
-    return div;
-  }));
-}
-
-/** Casillas de la pantalla final: todas del mismo tamaño, que quepa la respuesta más larga. */
-function medirFinal() {
-  const filas = $('f-retos').querySelectorAll('.casillas-final');
-  if (!filas.length) return;
-  const mayor = Math.max(...[...filas].map((f) => f.children.length));
-  const tam = Math.min(40, Math.floor((($('f-retos').clientWidth || 340) - 5 * (mayor - 1)) / mayor));
-  for (const f of filas) {
-    f.style.setProperty('--tam', `${tam}px`);
-    f.style.setProperty('--gap', '5px');
   }
 }
 
@@ -835,7 +813,7 @@ function enlazar() {
   $('b-reintentar').addEventListener('click', () => location.reload());
 
   const estadisticas = $('d-estadisticas');
-  $('b-estadisticas').addEventListener('click', () => { pintarEstadisticas(); estadisticas.showModal(); });
+  $('b-estadisticas').addEventListener('click', () => { pintarEstadisticas(); pintarSemana(); estadisticas.showModal(); });
   estadisticas.querySelectorAll('[data-cerrar]').forEach((b) => b.addEventListener('click', () => estadisticas.close()));
   estadisticas.addEventListener('click', (e) => { if (e.target === estadisticas) estadisticas.close(); });
 
@@ -850,7 +828,6 @@ function enlazar() {
     cancelAnimationFrame(pendiente);
     pendiente = requestAnimationFrame(() => {
       pintarCasillas();
-      if (!$('p-final').hidden) medirFinal();
       if (partida && !$('j-desmontaje').hidden) escenario.medir(partida.analisis.guion.pasos);
     });
   });

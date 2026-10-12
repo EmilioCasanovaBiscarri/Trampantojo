@@ -190,40 +190,24 @@
       </div>
     </section>
 
-    <!-- Resultado del día -->
-    <section class="pantalla" id="p-final" hidden>
-      <header class="final-cabeza">
-        <p class="sobretitulo" id="f-numero" tabindex="-1" data-foco></p>
-        <p class="final-fecha" id="f-fecha"></p>
-      </header>
-      <ol class="final-retos" id="f-retos"></ol>
-      <p class="final-ayudas" id="f-ayudas"></p>
-
-      <div class="tarjeta racha">
-        <div class="racha-dato">
-          <span class="cifra" id="f-racha">0</span>
-          <span class="racha-etiqueta" id="f-racha-etiqueta">días de racha</span>
-        </div>
-        <div class="racha-dato">
-          <span class="cifra cifra-secundaria" id="f-mejor">0</span>
-          <span class="racha-etiqueta">mejor racha</span>
-        </div>
-        <ol class="semana" id="f-semana" aria-label="Últimos siete días"></ol>
+    <!-- Resultado del día. Igual en todos los juegos del Almanaque: ficha con el resultado,
+         una línea por reto, estadísticas y botones, que se ven sin desplazarse. -->
+    <section class="pantalla pantalla-final" id="p-final" aria-label="Resultado de hoy" hidden>
+      <div class="ficha-final">
+        <p class="marcas" id="f-marcas" role="img"></p>
+        <h2 class="final-cifra" id="f-cifra" tabindex="-1" data-foco></h2>
+        <p class="final-frase" id="f-frase"></p>
       </div>
+      <ol class="lista-final" id="f-retos" aria-label="Toca un reto para ver su desmontaje"></ol>
+      <div class="estadisticas estadisticas-final" id="f-estadisticas"></div>
 
-      <div class="acciones acciones-columna">
-        <button type="button" class="boton" id="f-compartir">
-          <svg class="icono-boton" aria-hidden="true"><use href="#i-compartir"/></svg>
-          Compartir resultado
-        </button>
+      <div class="acciones acciones-columna acciones-final">
+        <button type="button" class="boton" id="f-compartir">Compartir</button>
         <a class="boton boton-secundario" data-almanaque-volver hidden href="https://joseleking.github.io/Almanaque/">☜ Regresar al Almanaque</a>
         <p class="aviso" id="f-aviso" aria-live="polite"></p>
       </div>
 
-      <div class="cuenta">
-        <span class="sobretitulo">Nuevos retos en</span>
-        <time class="cuenta-reloj" id="f-cuenta">--:--:--</time>
-      </div>
+      <p class="cuenta">Nuevos retos en <time class="cuenta-reloj" id="f-cuenta">--:--:--</time></p>
 
       <div class="acciones acciones-columna">
         <button type="button" class="enlace" data-tutorial>Repasar el tutorial</button>
@@ -263,6 +247,7 @@
         <button type="button" class="boton-icono" data-cerrar aria-label="Cerrar"><span aria-hidden="true">×</span></button>
       </div>
       <div class="estadisticas" id="d-estadisticas-cifras"></div>
+      <ol class="semana" id="d-semana" aria-label="Últimos siete días"></ol>
       <div class="acciones acciones-columna">
         <button type="button" class="boton" data-cerrar>CERRAR</button>
       </div>

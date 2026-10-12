@@ -824,28 +824,78 @@ a.boton { text-decoration: none; }
 
 /* ── Resultado del día ────────────────────────────────────────────── */
 
-.final-cabeza { margin: 26px 0 16px; text-align: center; }
-.final-fecha {
-  margin: 4px 0 0;
+/* Igual en todos los juegos del Almanaque: ficha con el resultado, una línea por reto,
+   estadísticas y botones. Todo cabe en el móvil sin desplazarse hasta los botones. */
+.pantalla-final { padding-top: 12px; }
+
+.ficha-final {
+  padding: 10px 16px 12px;
+  border: 1px solid var(--linea);
+  outline: 1px solid var(--linea);
+  outline-offset: -5px;
+  border-radius: 2px;
+  background: var(--papel-alto);
+  text-align: center;
+}
+
+.marcas { display: flex; justify-content: center; gap: 8px; margin: 2px 0 0; }
+.marca-ficha {
+  width: 19px;
+  height: 23px;
+  border: 1.5px solid var(--tinta-3);
+  border-radius: 3px;
+}
+.marca-ficha.limpia { background: var(--acierto-fondo); border-color: var(--acierto-fondo); }
+.marca-ficha.con-ayudas { background: var(--ambar); border-color: var(--ambar); }
+
+.final-cifra {
+  margin: 2px 0 0;
+  font-family: var(--f-display);
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1.05;
+  font-variant-numeric: lining-nums;
+}
+.final-cifra small { font-size: .55em; font-weight: 500; color: var(--tinta-3); }
+.final-cifra:focus { outline: none; }
+
+.final-frase {
+  margin: 2px 0 0;
   font-family: var(--f-display);
   font-style: italic;
-  font-size: 1.45rem;
-  font-weight: 500;
-  font-variation-settings: 'opsz' 72;
-}
-.final-retos { display: grid; gap: 18px; margin: 4px 0 18px; padding: 0; list-style: none; }
-.final-reto { display: grid; gap: 8px; }
-.casillas-final { margin: 0; }
-.final-reto-pie { margin: 0; text-align: center; font-size: .9rem; color: var(--tinta-2); }
-.final-reto-pie .enlace { min-height: 0; padding: 6px 2px; font-size: inherit; }
-.final-pista {
-  margin: 0 8px;
-  text-align: center;
-  font-style: italic;
+  font-size: 1.1rem;
   color: var(--tinta-2);
-  text-wrap: balance;
 }
-.final-ayudas { text-align: center; font-size: .95rem; margin-bottom: 0; }
+
+.lista-final { margin: 8px 0 0; padding: 0; list-style: none; }
+.lista-final li { border-bottom: 1px solid var(--linea); }
+.lista-final button {
+  display: grid;
+  grid-template-columns: 24px auto 1fr 14px;
+  align-items: baseline;
+  gap: 8px;
+  width: 100%;
+  min-height: 42px;
+  padding: 7px 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.lista-final button::after { content: '›'; font-size: 1.2rem; line-height: 1; color: var(--tinta-3); }
+.lista-final .marca { font-weight: 600; text-align: center; }
+.lista-final .marca.bien { color: var(--verde); }
+.lista-final .marca.mal { color: var(--alerta); }
+.lista-final .lema {
+  font-family: var(--f-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.lista-final .destino { text-align: right; font-style: italic; font-size: .93rem; color: var(--tinta-2); }
 
 .racha {
   display: grid;
@@ -898,15 +948,11 @@ a.boton { text-decoration: none; }
 
 .aviso { min-height: 1.4em; margin: 2px 0 0; text-align: center; font-size: .9rem; color: var(--tinta-2); overflow-wrap: anywhere; }
 
-.cuenta { margin: 18px 0 0; text-align: center; }
+.cuenta { margin: 10px 0 0; text-align: center; color: var(--tinta-2); }
 .cuenta-reloj {
-  display: block;
-  margin-top: 4px;
-  font-family: var(--f-display);
-  font-size: 2.1rem;
-  font-weight: 500;
+  font-weight: 600;
+  color: var(--tinta);
   font-variant-numeric: tabular-nums lining-nums;
-  letter-spacing: .03em;
 }
 
 /* ── Diálogo ──────────────────────────────────────────────────────── */
@@ -935,6 +981,31 @@ a.boton { text-decoration: none; }
 .lista-ayudas { margin: 0 0 12px; padding-left: 1.3em; }
 .estadisticas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 12px 0 4px; text-align: center; }
 .estadisticas .cifra { font-size: 2.2rem; }
+#d-semana { margin-top: 8px; }
+
+/* En la pantalla final, las estadísticas van en una franja entre filetes dobles. */
+.estadisticas-final {
+  gap: 0;
+  margin: 12px 0 0;
+  padding: 6px 0;
+  border-top: 3px double var(--linea);
+  border-bottom: 3px double var(--linea);
+}
+.estadisticas-final .cifra { font-size: 1.35rem; }
+.estadisticas-final .racha-etiqueta { white-space: nowrap; letter-spacing: .1em; }
+.acciones-final { gap: 8px; margin-top: 12px; }
+.acciones-final .boton { min-height: 48px; padding: 10px 18px; }
+
+/* En pantallas bajas (iPhone SE, Android pequeños) las estadísticas bajan bajo los botones,
+   para que Compartir, Siguiente juego y Regresar se vean sin desplazarse. */
+@media (max-height: 660px) {
+  .pantalla-final:not([hidden]) { display: flex; flex-direction: column; padding-top: 6px; }
+  .pantalla-final > .estadisticas,
+  .pantalla-final > .cuenta,
+  .pantalla-final > .acciones:last-child { order: 1; }
+  .ficha-final { padding: 8px 16px 10px; }
+  .lista-final button { min-height: 40px; padding: 6px 0; }
+}
 
 /* ── Pantallas anchas: un poco más de aire ────────────────────────── */
 
