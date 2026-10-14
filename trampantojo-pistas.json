@@ -2072,6 +2072,741 @@
           "desmontaje": "ALAS al revés (SALA) + MI (nota)"
         }
       ]
+    },
+    {
+      "dia": 72,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "oculta",
+          "pista": "Ave oculta en la roca",
+          "longitud": 3,
+          "respuesta": "OCA",
+          "definicion": "Ave",
+          "indicador": "oculta en",
+          "desmontaje": "r-OCA"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "anagrama",
+          "pista": "Paso revuelto: primer plato caliente",
+          "longitud": 4,
+          "respuesta": "SOPA",
+          "definicion": "primer plato caliente",
+          "indicador": "revuelto",
+          "desmontaje": "PASO desordenado → SOPA"
+        },
+        {
+          "dificultad": 3,
+          "tipo": "suma",
+          "pista": "Lleva voz: quien habla por el grupo",
+          "longitud": 8,
+          "respuesta": "PORTAVOZ",
+          "definicion": "quien habla por el grupo",
+          "indicador": "(implícito)",
+          "desmontaje": "PORTA (lleva) + VOZ"
+        }
+      ]
+    },
+    {
+      "dia": 73,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "inversion",
+          "pista": "Animal de vuelta: hoja delgada de metal",
+          "longitud": 6,
+          "respuesta": "LÁMINA",
+          "definicion": "hoja delgada de metal",
+          "indicador": "de vuelta",
+          "desmontaje": "ANIMAL leído hacia atrás → LÁMINA"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "homofono",
+          "pista": "Suena a guisar lo que hace la costurera",
+          "longitud": 5,
+          "respuesta": "COSER",
+          "definicion": "lo que hace la costurera",
+          "indicador": "Suena a",
+          "desmontaje": "COCER (guisar) suena igual que COSER"
+        },
+        {
+          "dificultad": 3,
+          "tipo": "resta",
+          "pista": "Costa sin ese: altura de un punto en el mapa",
+          "longitud": 4,
+          "respuesta": "COTA",
+          "definicion": "altura de un punto en el mapa",
+          "indicador": "sin ese",
+          "desmontaje": "COSTA − S → COTA"
+        }
+      ]
+    },
+    {
+      "dia": 74,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "oculta",
+          "pista": "Río oculto en lo que celebro",
+          "longitud": 4,
+          "respuesta": "EBRO",
+          "definicion": "Río",
+          "indicador": "oculto en",
+          "desmontaje": "cel-EBRO"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "anagrama",
+          "pista": "Rosa revuelta: atreverse",
+          "longitud": 4,
+          "respuesta": "OSAR",
+          "definicion": "atreverse",
+          "indicador": "revuelta",
+          "desmontaje": "ROSA desordenada → OSAR"
+        },
+        {
+          "dificultad": 3,
+          "tipo": "contenedor",
+          "pista": "Casa guarda un set: puesto de feria",
+          "longitud": 6,
+          "respuesta": "CASETA",
+          "definicion": "puesto de feria",
+          "indicador": "guarda",
+          "desmontaje": "CA(SET)A: SET metido dentro de CASA"
+        }
+      ]
+    },
+    {
+      "dia": 75,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "resta",
+          "pista": "Monte sin ene: apodo",
+          "longitud": 4,
+          "respuesta": "MOTE",
+          "definicion": "apodo",
+          "indicador": "sin ene",
+          "desmontaje": "MONTE − N → MOTE"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "homofono",
+          "pista": "Suena a registrar en disco poner un impuesto",
+          "longitud": 6,
+          "respuesta": "GRAVAR",
+          "definicion": "poner un impuesto",
+          "indicador": "Suena a",
+          "desmontaje": "GRABAR (registrar en disco) suena igual que GRAVAR"
+        },
+        {
+          "dificultad": 3,
+          "tipo": "suma",
+          "pista": "Recorta garras: utensilio de manicura",
+          "longitud": 9,
+          "respuesta": "CORTAÚÑAS",
+          "definicion": "utensilio de manicura",
+          "indicador": "(implícito)",
+          "desmontaje": "CORTA (recorta) + UÑAS (garras)"
+        }
+      ]
+    },
+    {
+      "dia": 76,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "inversion",
+          "pista": "Arroz de vuelta: astuta del bosque",
+          "longitud": 5,
+          "respuesta": "ZORRA",
+          "definicion": "astuta del bosque",
+          "indicador": "de vuelta",
+          "desmontaje": "ARROZ leído hacia atrás → ZORRA"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "homofono",
+          "pista": "Suena a lanzar al agua elegir en las urnas",
+          "longitud": 5,
+          "respuesta": "VOTAR",
+          "definicion": "elegir en las urnas",
+          "indicador": "Suena a",
+          "desmontaje": "BOTAR (lanzar al agua) suena igual que VOTAR"
+        },
+        {
+          "dificultad": 4,
+          "tipo": "combinada",
+          "pista": "Sal de vuelta con estafa: compasión",
+          "longitud": 7,
+          "respuesta": "LÁSTIMA",
+          "definicion": "compasión",
+          "indicador": "de vuelta / con",
+          "desmontaje": "SAL al revés (LAS) + TIMA (estafa)"
+        }
+      ]
+    },
+    {
+      "dia": 77,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "oculta",
+          "pista": "Pez oculto en la cara ya cansada",
+          "longitud": 4,
+          "respuesta": "RAYA",
+          "definicion": "Pez",
+          "indicador": "oculto en",
+          "desmontaje": "ca-RA YA"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "anagrama",
+          "pista": "Saco revuelto: objeto cualquiera",
+          "longitud": 4,
+          "respuesta": "COSA",
+          "definicion": "objeto cualquiera",
+          "indicador": "revuelto",
+          "desmontaje": "SACO desordenado → COSA"
+        },
+        {
+          "dificultad": 3,
+          "tipo": "suma",
+          "pista": "Liquida insectos: la pala del verano",
+          "longitud": 10,
+          "respuesta": "MATAMOSCAS",
+          "definicion": "la pala del verano",
+          "indicador": "(implícito)",
+          "desmontaje": "MATA (liquida) + MOSCAS (insectos)"
+        }
+      ]
+    },
+    {
+      "dia": 78,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "resta",
+          "pista": "Barco sin be: lo usa el arquero",
+          "longitud": 4,
+          "respuesta": "ARCO",
+          "definicion": "lo usa el arquero",
+          "indicador": "sin be",
+          "desmontaje": "BARCO − B → ARCO"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "homofono",
+          "pista": "Suena a encuentra el árbol del bosque",
+          "longitud": 4,
+          "respuesta": "HAYA",
+          "definicion": "el árbol del bosque",
+          "indicador": "Suena a",
+          "desmontaje": "HALLA (encuentra) suena igual que HAYA"
+        },
+        {
+          "dificultad": 3,
+          "tipo": "contenedor",
+          "pista": "Caso que guarda un sin: sala de apuestas",
+          "longitud": 6,
+          "respuesta": "CASINO",
+          "definicion": "sala de apuestas",
+          "indicador": "guarda",
+          "desmontaje": "CA(SIN)O: SIN metido dentro de CASO"
+        }
+      ]
+    },
+    {
+      "dia": 79,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "inversion",
+          "pista": "Sala de vuelta: las tiene el pájaro",
+          "longitud": 4,
+          "respuesta": "ALAS",
+          "definicion": "las tiene el pájaro",
+          "indicador": "de vuelta",
+          "desmontaje": "SALA leída hacia atrás → ALAS"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "anagrama",
+          "pista": "Ostra revuelta: cuerpo celeste",
+          "longitud": 5,
+          "respuesta": "ASTRO",
+          "definicion": "cuerpo celeste",
+          "indicador": "revuelta",
+          "desmontaje": "OSTRA desordenada → ASTRO"
+        },
+        {
+          "dificultad": 3,
+          "tipo": "suma",
+          "pista": "Retira copos: máquina del puerto de montaña",
+          "longitud": 11,
+          "respuesta": "QUITANIEVES",
+          "definicion": "máquina del puerto de montaña",
+          "indicador": "(implícito)",
+          "desmontaje": "QUITA (retira) + NIEVES (copos)"
+        }
+      ]
+    },
+    {
+      "dia": 80,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "oculta",
+          "pista": "Hembra del oso oculta en la cosa",
+          "longitud": 3,
+          "respuesta": "OSA",
+          "definicion": "Hembra del oso",
+          "indicador": "oculta en",
+          "desmontaje": "c-OSA"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "homofono",
+          "pista": "Suena a cerca el fruto del arándano",
+          "longitud": 4,
+          "respuesta": "BAYA",
+          "definicion": "el fruto del arándano",
+          "indicador": "Suena a",
+          "desmontaje": "VALLA (cerca) suena igual que BAYA"
+        },
+        {
+          "dificultad": 3,
+          "tipo": "resta",
+          "pista": "Ostra sin ese: diferente",
+          "longitud": 4,
+          "respuesta": "OTRA",
+          "definicion": "diferente",
+          "indicador": "sin ese",
+          "desmontaje": "OSTRA − S → OTRA"
+        }
+      ]
+    },
+    {
+      "dia": 81,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "anagrama",
+          "pista": "Ramas revueltas: las carga el soldado",
+          "longitud": 5,
+          "respuesta": "ARMAS",
+          "definicion": "las carga el soldado",
+          "indicador": "revueltas",
+          "desmontaje": "RAMAS desordenadas → ARMAS"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "suma",
+          "pista": "Rescata manteles: protege la mesa de la olla",
+          "longitud": 13,
+          "respuesta": "SALVAMANTELES",
+          "definicion": "protege la mesa de la olla",
+          "indicador": "(implícito)",
+          "desmontaje": "SALVA (rescata) + MANTELES"
+        },
+        {
+          "dificultad": 3,
+          "tipo": "contenedor",
+          "pista": "Carta que guarda una nota: carro de bueyes",
+          "longitud": 7,
+          "respuesta": "CARRETA",
+          "definicion": "carro de bueyes",
+          "indicador": "guarda",
+          "desmontaje": "CAR(RE)TA: RE (una nota) metido dentro de CARTA"
+        }
+      ]
+    },
+    {
+      "dia": 82,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "inversion",
+          "pista": "Etna de vuelta: piel curtida",
+          "longitud": 4,
+          "respuesta": "ANTE",
+          "definicion": "piel curtida",
+          "indicador": "de vuelta",
+          "desmontaje": "ETNA leído hacia atrás → ANTE"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "homofono",
+          "pista": "Suena a equivocarse lo que hace el herrero con el caballo",
+          "longitud": 6,
+          "respuesta": "HERRAR",
+          "definicion": "lo que hace el herrero con el caballo",
+          "indicador": "Suena a",
+          "desmontaje": "ERRAR (equivocarse) suena igual que HERRAR"
+        },
+        {
+          "dificultad": 3,
+          "tipo": "suma",
+          "pista": "Tapa lecho: colcha",
+          "longitud": 9,
+          "respuesta": "CUBRECAMA",
+          "definicion": "colcha",
+          "indicador": "(implícito)",
+          "desmontaje": "CUBRE (tapa) + CAMA (lecho)"
+        }
+      ]
+    },
+    {
+      "dia": 83,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "oculta",
+          "pista": "Árbol oculto en el sol mohoso",
+          "longitud": 4,
+          "respuesta": "OLMO",
+          "definicion": "Árbol",
+          "indicador": "oculto en",
+          "desmontaje": "s-OL MO-hoso"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "anagrama",
+          "pista": "Trama revuelta: quitar la vida",
+          "longitud": 5,
+          "respuesta": "MATAR",
+          "definicion": "quitar la vida",
+          "indicador": "revuelta",
+          "desmontaje": "TRAMA desordenada → MATAR"
+        },
+        {
+          "dificultad": 3,
+          "tipo": "suma",
+          "pista": "Engulle monedas: máquina del bar",
+          "longitud": 11,
+          "respuesta": "TRAGAPERRAS",
+          "definicion": "máquina del bar",
+          "indicador": "(implícito)",
+          "desmontaje": "TRAGA (engulle) + PERRAS (monedas)"
+        }
+      ]
+    },
+    {
+      "dia": 84,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "oculta",
+          "pista": "Prenda oculta en la escapada",
+          "longitud": 4,
+          "respuesta": "CAPA",
+          "definicion": "Prenda",
+          "indicador": "oculta en",
+          "desmontaje": "es-CAPA-da"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "homofono",
+          "pista": "Suena a que cueza el césped",
+          "longitud": 6,
+          "respuesta": "HIERBA",
+          "definicion": "el césped",
+          "indicador": "Suena a",
+          "desmontaje": "HIERVA (que cueza) suena igual que HIERBA"
+        },
+        {
+          "dificultad": 4,
+          "tipo": "combinada",
+          "pista": "Res de vuelta y ruin: rastrero",
+          "longitud": 6,
+          "respuesta": "SERVIL",
+          "definicion": "rastrero",
+          "indicador": "de vuelta / y",
+          "desmontaje": "RES al revés (SER) + VIL (ruin)"
+        }
+      ]
+    },
+    {
+      "dia": 85,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "inversion",
+          "pista": "Raíl de vuelta: envolver",
+          "longitud": 4,
+          "respuesta": "LIAR",
+          "definicion": "envolver",
+          "indicador": "de vuelta",
+          "desmontaje": "RAÍL leído hacia atrás → LIAR"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "anagrama",
+          "pista": "Pesca revuelta: troncos de vid",
+          "longitud": 5,
+          "respuesta": "CEPAS",
+          "definicion": "troncos de vid",
+          "indicador": "revuelta",
+          "desmontaje": "PESCA desordenada → CEPAS"
+        },
+        {
+          "dificultad": 3,
+          "tipo": "suma",
+          "pista": "Velada bondadosa: la víspera de Navidad",
+          "longitud": 10,
+          "respuesta": "NOCHEBUENA",
+          "definicion": "la víspera de Navidad",
+          "indicador": "(implícito)",
+          "desmontaje": "NOCHE (velada) + BUENA (bondadosa)"
+        }
+      ]
+    },
+    {
+      "dia": 86,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "oculta",
+          "pista": "Bebida oculta en el adivino",
+          "longitud": 4,
+          "respuesta": "VINO",
+          "definicion": "Bebida",
+          "indicador": "oculta en",
+          "desmontaje": "adi-VINO"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "homofono",
+          "pista": "Suena a destruido el residuo",
+          "longitud": 7,
+          "respuesta": "DESECHO",
+          "definicion": "el residuo",
+          "indicador": "Suena a",
+          "desmontaje": "DESHECHO (destruido) suena igual que DESECHO"
+        },
+        {
+          "dificultad": 3,
+          "tipo": "resta",
+          "pista": "Cuesta sin u: la de la compra",
+          "longitud": 5,
+          "respuesta": "CESTA",
+          "definicion": "la de la compra",
+          "indicador": "sin u",
+          "desmontaje": "CUESTA − U → CESTA"
+        }
+      ]
+    },
+    {
+      "dia": 87,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "anagrama",
+          "pista": "Senda revuelta: espesa",
+          "longitud": 5,
+          "respuesta": "DENSA",
+          "definicion": "espesa",
+          "indicador": "revuelta",
+          "desmontaje": "SENDA desordenada → DENSA"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "suma",
+          "pista": "Friega palmas: pila del baño",
+          "longitud": 9,
+          "respuesta": "LAVAMANOS",
+          "definicion": "pila del baño",
+          "indicador": "(implícito)",
+          "desmontaje": "LAVA (friega) + MANOS (palmas)"
+        },
+        {
+          "dificultad": 3,
+          "tipo": "contenedor",
+          "pista": "Pan que guarda un ti: calzado con ruedas",
+          "longitud": 5,
+          "respuesta": "PATÍN",
+          "definicion": "calzado con ruedas",
+          "indicador": "guarda",
+          "desmontaje": "PA(TI)N: TI metido dentro de PAN"
+        }
+      ]
+    },
+    {
+      "dia": 88,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "inversion",
+          "pista": "Oval de vuelta: friego",
+          "longitud": 4,
+          "respuesta": "LAVO",
+          "definicion": "friego",
+          "indicador": "de vuelta",
+          "desmontaje": "OVAL leído hacia atrás → LAVO"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "homofono",
+          "pista": "Suena a hueca la vasija del barbero",
+          "longitud": 5,
+          "respuesta": "BACÍA",
+          "definicion": "la vasija del barbero",
+          "indicador": "Suena a",
+          "desmontaje": "VACÍA (hueca) suena igual que BACÍA"
+        },
+        {
+          "dificultad": 3,
+          "tipo": "resta",
+          "pista": "Toldo sin ele: la totalidad",
+          "longitud": 4,
+          "respuesta": "TODO",
+          "definicion": "la totalidad",
+          "indicador": "sin ele",
+          "desmontaje": "TOLDO − L → TODO"
+        }
+      ]
+    },
+    {
+      "dia": 89,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "oculta",
+          "pista": "Moneda oculta en lo neuronal",
+          "longitud": 4,
+          "respuesta": "EURO",
+          "definicion": "Moneda",
+          "indicador": "oculta en",
+          "desmontaje": "n-EURO-nal"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "anagrama",
+          "pista": "Notas revueltas: el del calendario",
+          "longitud": 5,
+          "respuesta": "SANTO",
+          "definicion": "el del calendario",
+          "indicador": "revueltas",
+          "desmontaje": "NOTAS desordenadas → SANTO"
+        },
+        {
+          "dificultad": 3,
+          "tipo": "resta",
+          "pista": "Plomo sin ele: tirador de la puerta",
+          "longitud": 4,
+          "respuesta": "POMO",
+          "definicion": "tirador de la puerta",
+          "indicador": "sin ele",
+          "desmontaje": "PLOMO − L → POMO"
+        }
+      ]
+    },
+    {
+      "dia": 90,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "inversion",
+          "pista": "Aires de vuelta: formal",
+          "longitud": 5,
+          "respuesta": "SERIA",
+          "definicion": "formal",
+          "indicador": "de vuelta",
+          "desmontaje": "AIRES leído hacia atrás → SERIA"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "homofono",
+          "pista": "Suena a golpea el poeta",
+          "longitud": 4,
+          "respuesta": "VATE",
+          "definicion": "el poeta",
+          "indicador": "Suena a",
+          "desmontaje": "BATE (golpea) suena igual que VATE"
+        },
+        {
+          "dificultad": 3,
+          "tipo": "suma",
+          "pista": "Detiene golpes: defensa del coche",
+          "longitud": 11,
+          "respuesta": "PARACHOQUES",
+          "definicion": "defensa del coche",
+          "indicador": "(implícito)",
+          "desmontaje": "PARA (detiene) + CHOQUES (golpes)"
+        }
+      ]
+    },
+    {
+      "dia": 91,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "oculta",
+          "pista": "Flor oculta en lo prosaico",
+          "longitud": 4,
+          "respuesta": "ROSA",
+          "definicion": "Flor",
+          "indicador": "oculta en",
+          "desmontaje": "p-ROSA-ico"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "resta",
+          "pista": "Cuero sin u: nada en números",
+          "longitud": 4,
+          "respuesta": "CERO",
+          "definicion": "nada en números",
+          "indicador": "sin u",
+          "desmontaje": "CUERO − U → CERO"
+        },
+        {
+          "dificultad": 3,
+          "tipo": "contenedor",
+          "pista": "Paja que guarda una nota: dúo",
+          "longitud": 6,
+          "respuesta": "PAREJA",
+          "definicion": "dúo",
+          "indicador": "guarda",
+          "desmontaje": "PA(RE)JA: RE (una nota) metido dentro de PAJA"
+        }
+      ]
+    },
+    {
+      "dia": 92,
+      "pistas": [
+        {
+          "dificultad": 1,
+          "tipo": "oculta",
+          "pista": "Fruta oculta en tu valor",
+          "longitud": 3,
+          "respuesta": "UVA",
+          "definicion": "Fruta",
+          "indicador": "oculta en",
+          "desmontaje": "t-U VA-lor"
+        },
+        {
+          "dificultad": 2,
+          "tipo": "anagrama",
+          "pista": "Mate revuelto: final de carrera",
+          "longitud": 4,
+          "respuesta": "META",
+          "definicion": "final de carrera",
+          "indicador": "revuelto",
+          "desmontaje": "MATE desordenado → META"
+        },
+        {
+          "dificultad": 3,
+          "tipo": "suma",
+          "pista": "Velada anciana: la última del año",
+          "longitud": 10,
+          "respuesta": "NOCHEVIEJA",
+          "definicion": "la última del año",
+          "indicador": "(implícito)",
+          "desmontaje": "NOCHE (velada) + VIEJA (anciana)"
+        }
+      ]
     }
   ]
 }
